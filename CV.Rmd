@@ -1,0 +1,118 @@
+---
+title: "Curriculum Vitae - Helena R. S. D'Espindula"
+author: "helena.despindula@gmail.com"
+date: "`r format(Sys.time(), '%d/%m/%Y')`"
+output: pdf_document
+papersize: a4
+documentclass: article
+linestretch: 1.15
+fontsize: 12pt
+margin-left: 1cm
+margin-right: 1.5cm
+margin-top: 2cm
+margin-bottom: 2cm
+adjusting: b
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+options(knitr.table.format = "latex")
+
+idioma_cv = "PT"
+modelo = 1
+
+library(stringr)
+library(tidyverse)
+library(kableExtra)
+```
+
+# Dados pessoais
+
+```{r xml}
+
+file_name <- "CV-2021-dados_pessoais.csv"
+
+tabela_imprimir <- read.csv2(file_name, sep = ";", header = FALSE)
+
+#View(tabela_imprimir)
+
+knitr::kable(tabela_imprimir, align = "ll", col.names = NULL)
+
+```
+
+
+```{r links}
+
+file_name <- "CV-2021-links.csv"
+
+tabela_imprimir <- read.csv2(file_name, sep = ";", header = FALSE)
+
+#View(tabela_imprimir)
+
+knitr::kable(tabela_imprimir, align = "ll", col.names = NULL)
+
+```
+
+# Formacao
+
+```{r csv}
+
+file_name <- "CV-2021-formatacao2.csv"
+
+tabela_mae <- read.csv2(file_name, sep = ";", header = TRUE)
+
+tabela_imprimir <- matrix(data = NA, nrow = 3, ncol = 3)
+
+for (i in 1:3) {
+  if (idioma_cv == "PT") {
+    if (modelo == 1) {
+      tabela_imprimir[i,1] <- stringr::str_glue(tabela_mae[i,"ano_inicio"], " até ", tabela_mae[i,"ano_fim"], " - ", .sep = "")
+      tabela_imprimir[i,2] <- stringr::str_glue(tabela_mae[i,"tipo_PT"],  " ", tabela_mae[i,"conec_PT"], " ",  tabela_mae[i,"nome_PT"], " - ", .sep = "")
+      tabela_imprimir[i,3] <- stringr::str_glue(tabela_mae[i,"ies_nome"], " (", tabela_mae[i,"ies_sigla"], ")", .sep = "")
+    }
+  }
+}
+
+View(tabela_imprimir)
+
+kbl(tabela_imprimir, col.names = NULL)
+
+
+#knitr::kable(tabela_imprimir, align = "llll", col.names = NULL)
+```
+# Experiencia profissional
+
+```{r}
+
+```
+
+
+# Publicações
+
+## Artigos científicos
+
+```{r}
+
+```
+
+## Capitulos de livro
+
+```{r}
+
+```
+
+
+# Ferramentas de Informatica
+
+```{r}
+
+```
+
+
+
+# Idiomas
+
+```{r}
+
+```
+
