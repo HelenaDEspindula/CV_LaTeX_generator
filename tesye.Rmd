@@ -1,0 +1,68 @@
+---
+title: "Curriculum Vitae - Helena R. S. D'Espondula"
+author: "helena.despindula@gmail.com"
+date: "`r format(Sys.time(), '%d/%m/%y')`"
+output: pdf_document
+papersize: a4
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+options(knitr.table.format = "latex")
+```
+
+## Dados pessoais
+
+```{r xml}
+
+#knitr::kable()
+
+#library(xml2)
+#library(XML)
+#library(RMySQL)
+#library(tidyverse)
+
+#lattes_xml <- as_list(read_xml("curriculo.xml"))
+
+#lattes_xml <- read_xml("curriculo.xml")
+
+#str(lattes_xml)
+
+#xml_name(lattes_xml)
+
+#xml_structure(lattes_xml)
+
+#xml_text(lattes_xml)
+
+#xml_children(lattes_xml)
+#lattes_df <- xmlToDataFrame(lattes_xml)
+
+
+#View(lattes_df)
+
+
+
+```
+
+## Formacao
+
+```{r csv}
+
+library(readr)
+library(stringr)
+
+
+#CV_2021_csv_Formacao <- read_csv("CV-2021-csv - Formacao.csv")
+file_name <- "CV-2021-Formacao.csv"
+
+formacao <- read.csv2(file_name, sep = ",", header = FALSE)
+
+View(CV_2021_csv_Formacao)
+
+#print(formacao, latex.environments = c("acriptaize", "center", "widestuff"), tabular.environment = "longtable", floating = FALSE)
+
+
+knitr::kable(formacao, , align = "llll", "latex")
+```
+
+
